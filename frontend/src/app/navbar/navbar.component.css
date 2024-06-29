@@ -1,0 +1,25 @@
+.header {
+  background-color: #1db954;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.header h4 {
+  margin: 0;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+
+}

@@ -1,0 +1,16 @@
+<mat-dialog-actions align="end">
+  <h2 mat-dialog-title><button mat-button mat-dialog-close >Cancel</button></h2>
+</mat-dialog-actions>
+<mat-dialog-content>
+  <div class="container mt-3 text-light" *ngFor="let artist of data">
+    <div class="card d-flex align-items-center text-center">
+      <a (click)="closeDialog(artist)">
+        <img [src]="artist.images[2].url" class="img-fluid">
+        <div class="info flex-grow-1 ml-3 mt-3">
+          <h3><b>{{artist.name}}</b></h3>
+          <p>{{artist.genres[0] | titlecase}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</mat-dialog-content>

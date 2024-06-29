@@ -1,0 +1,29 @@
+<div class="mt-5">
+  <h2>Input</h2>
+  <form [formGroup]="playlistForm" class="py-3">
+    <div class="form-group mb-3" >
+      <label for="playlistQuantity" c><b>Artist</b></label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="artist" formControlName="artist" #artist >
+        <button type="submit" [disabled]="playlistForm.get('artist')?.hasError('required') " class="btn btn-success"><i class="bi bi-search" (click)="searchRelatedArtists(artist.value)"></i></button>
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="playlistQuantity"><b>Genre</b></label>
+      <input type="text" class="form-control" id="playlistGenre" formControlName="genre">
+    </div>
+    <div class="form-group mb-3">
+      <label for="playlistQuantity"><b>Number of tracks in the playlist (1-15)</b></label>
+      <input type="number" class="form-control" id="playlistQuantity" min="1" max="30" formControlName="quantity">
+    </div>
+    <div class="form-group mb-3">
+      <label for="playlistName"><b>Playlist name</b></label>
+      <input type="text" class="form-control" id="playlistName" formControlName="playlistName">
+    </div>
+    <div class="form-group mb-3">
+      <label for="playlistDescription"><b>Playlist description</b></label>
+      <textarea class="form-control" id="playlistDescription" rows="3" formControlName="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success mt-3" (click)="generateMusicRecommendation();">Generate Music Recommendations</button>
+  </form>
+</div>

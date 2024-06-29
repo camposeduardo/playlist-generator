@@ -1,0 +1,18 @@
+.profile-card {
+  padding: 40px;
+  margin: 40px;
+}
+.profile-image {
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+}
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile-details {
+  display: flex;
+  align-items: center;
+}

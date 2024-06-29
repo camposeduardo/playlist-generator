@@ -1,0 +1,43 @@
+body {
+  background-color: #2e2e2e;
+  color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  margin-top: 50px;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.form-control {
+  background-color: #3e3e3e;
+  border: 1px solid #5c5c5c;
+  color: #f0f0f0;
+}
+.form-control:focus {
+  background-color: #3e3e3e;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.input-group-text {
+  background-color: #3e3e3e;
+  border: 1px solid #5c5c5c;
+  color: #f0f0f0;
+}
+.btn {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.btn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+.card {
+  background-color: #3e3e3e;
+  border: 1px solid #5c5c5c;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.card-header {
+  background-color: #5c5c5c;
+  border-bottom: 1px solid #5c5c5c;
+}

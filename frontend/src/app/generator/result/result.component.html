@@ -1,0 +1,26 @@
+<div class="mt-5">
+  <h2>Output</h2>
+  <div class="output">
+    <div class="results-section text-dark">
+      <div *ngFor="let track of tracks; let i = index" class="track-item bg-light">
+        <img [src]="track.album.images[1].url" alt="Track Image" class="track-image">
+        <div class="track-details">
+          <div class="track-name">{{ track.name }}</div>
+          <div class="track-artists">
+            <span *ngFor="let artist of track.artists; let isLast = last">
+              {{ artist.name }}<span *ngIf="!isLast">, </span>
+            </span>
+          </div>
+          <span class="d-flex justify-content-end" *ngIf="track.preview_url">
+            <audio [id]="'audioPlayer' + i" #audioPlayer [src]="track.preview_url"></audio>
+            <button (click)="togglePlay('audioPlayer' + i)" class="track-button rounded-circle" >
+              <i class="text-center" [ngClass]="playerIdStatus === 'audioPlayer' + i ? ['bi', 'bi-pause', 'h5'] :  ['bi', 'bi-play', 'h5']">
+              </i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success mt-4">Generate Playlist</button>
+</div>

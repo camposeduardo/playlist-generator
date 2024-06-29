@@ -1,0 +1,19 @@
+<div class="container text-light bg-dark">
+  <div class="profile-card">
+      <div class="profile-info">
+          <div class="profile-details">
+              <div>
+                  <img [src]="userProfile!.images[1]!.url" alt="">
+              </div>
+              <div class="ms-5">
+                  <p><b>Name: </b> {{userProfile?.display_name}}</p>
+                  <p><b>Email: </b>{{userProfile?.email}}</p>
+              </div>
+          </div>
+          <div class="me-5">
+              <p><b>Country: </b>{{userProfile?.country}}</p>
+              <p><b>Followers: </b> {{userProfile?.followers?.total}}</p>
+          </div>
+      </div>
+  </div>
+</div>
