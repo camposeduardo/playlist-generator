@@ -4,6 +4,8 @@ import { ResultComponent } from './result/result.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Track } from '../interfaces/Track';
 import { CommonModule } from '@angular/common';
+import { PlaylistService } from '../services/playlist.service';
+import { RecommendationService } from '../services/recommendation.service';
 
 @Component({
   selector: 'app-generator',
@@ -13,5 +15,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './generator.component.css'
 })
 export class GeneratorComponent {
+
+  constructor(private recommendationService: RecommendationService,
+    private playlistService: PlaylistService
+  ) { }
+
 
 }

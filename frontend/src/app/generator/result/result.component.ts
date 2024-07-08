@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RecommendationService } from '../../services/recommendation.service';
 import { Track } from '../../interfaces/Track';
 import { CommonModule } from '@angular/common';
+import { PlaylistService } from '../../services/playlist.service';
 
 @Component({
   selector: 'result',
@@ -16,12 +17,16 @@ export class ResultComponent {
 
   playerIdStatus: string | null = null;
 
-  constructor(private recommendationService: RecommendationService) { }
+  constructor(private recommendationService: RecommendationService,
+    private playlistService: PlaylistService
+  ) { }
 
   ngOnInit() {
     this.recommendationService.recommendations.subscribe({
       next: (data) => {
-        this.tracks = data!;
+        if (data) {
+          this.tracks = data;
+        }
       }
     })
   }
@@ -38,6 +43,5 @@ export class ResultComponent {
       }
     }
   }
-
 
 }

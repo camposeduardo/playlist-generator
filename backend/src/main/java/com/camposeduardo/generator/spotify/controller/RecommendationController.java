@@ -1,6 +1,6 @@
 package com.camposeduardo.generator.spotify.controller;
 
-import com.camposeduardo.generator.spotify.dto.RecommendationResponse;
+import com.camposeduardo.generator.spotify.entities.RecommendationResponse;
 import com.camposeduardo.generator.spotify.service.RecommendationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

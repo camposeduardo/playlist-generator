@@ -1,4 +1,4 @@
-package com.camposeduardo.generator.spotify.dto;
+package com.camposeduardo.generator.spotify.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -7,13 +7,16 @@ import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
 public class UserProfile {
 
+    private String id;
     @JsonProperty("display_name")
     private String displayName;
     private String email;

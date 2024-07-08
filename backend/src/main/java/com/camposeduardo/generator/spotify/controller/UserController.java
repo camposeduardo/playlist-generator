@@ -1,6 +1,6 @@
 package com.camposeduardo.generator.spotify.controller;
 
-import com.camposeduardo.generator.spotify.dto.UserProfile;
+import com.camposeduardo.generator.spotify.entities.UserProfile;
 import com.camposeduardo.generator.spotify.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

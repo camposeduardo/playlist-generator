@@ -1,19 +1,18 @@
-package com.camposeduardo.generator.spotify.dto;
+package com.camposeduardo.generator.spotify.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
-public class Follower {
+public class AccessTokenResponse {
 
-    @JsonProperty("total")
-    private String total;
+    @JsonProperty("access_token")
+    private String accessToken;
 }

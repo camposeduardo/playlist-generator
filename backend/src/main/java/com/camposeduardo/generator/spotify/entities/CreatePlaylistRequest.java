@@ -1,29 +1,21 @@
-package com.camposeduardo.generator.spotify.dto;
+package com.camposeduardo.generator.spotify.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @RequiredArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
-public class Item {
+public class CreatePlaylistRequest {
 
-    private String id;
-
-    private String name;
-
-    @JsonProperty("genres")
-    private List<String> genres;
-
-    @JsonProperty("images")
-    private List<Image> images;
-
+    private Playlist playlist;
+    private List<Track> tracks;
 
 }
