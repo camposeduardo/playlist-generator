@@ -1,7 +1,7 @@
-package com.camposeduardo.generator.spotify.controller;
+package com.camposeduardo.generator.controller;
 
-import com.camposeduardo.generator.spotify.entities.RecommendationResponse;
-import com.camposeduardo.generator.spotify.service.RecommendationService;
+import com.camposeduardo.generator.entities.RecommendationResponse;
+import com.camposeduardo.generator.service.RecommendationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +16,6 @@ public class RecommendationController {
     @GetMapping("/recommendation")
     public ResponseEntity<RecommendationResponse> generateRecommendantion(@RequestHeader(HttpHeaders.AUTHORIZATION) String token,
                                                          @RequestParam String artistId, @RequestParam String genre) {
-        return ResponseEntity.ok().body(recommendationService.generateRecommendation(artistId, genre,token));
+        return ResponseEntity.ok().body(recommendationService.generateRecommendation(artistId, genre, token));
     }
 }

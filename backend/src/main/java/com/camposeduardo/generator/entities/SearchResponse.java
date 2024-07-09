@@ -1,18 +1,17 @@
-package com.camposeduardo.generator.spotify.entities;
+package com.camposeduardo.generator.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
-public class ArtistResponse {
+public class SearchResponse {
 
-    private List<Item> items;
+    @JsonProperty("artists")
+    private ArtistResponse artists;
 }

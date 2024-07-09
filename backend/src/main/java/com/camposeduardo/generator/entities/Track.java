@@ -1,4 +1,4 @@
-package com.camposeduardo.generator.spotify.entities;
+package com.camposeduardo.generator.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

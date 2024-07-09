@@ -1,27 +1,31 @@
-package com.camposeduardo.generator.spotify.entities;
+package com.camposeduardo.generator.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 
 import java.util.List;
 
 @Getter
 @Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
-public class UserProfile {
+public class Item {
 
     private String id;
-    @JsonProperty("display_name")
-    private String displayName;
-    private String email;
-    private String country;
-    @JsonProperty("followers")
-    private Follower followers;
+
+    private String name;
+
+    @JsonProperty("genres")
+    private List<String> genres;
+
+    @JsonProperty("images")
     private List<Image> images;
+
+
 }

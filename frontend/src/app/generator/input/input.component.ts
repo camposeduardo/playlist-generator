@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { CommonModule } from '@angular/common';
@@ -7,7 +7,6 @@ import { Artist } from '../../interfaces/Artist';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogArtistsComponent } from './dialog-artists/dialog-artists.component';
 import { RecommendationService } from '../../services/recommendation.service';
-import { Track } from '../../interfaces/Track';
 import { PlaylistService } from '../../services/playlist.service';
 import { Playlist } from '../../interfaces/Playlist';
 
@@ -36,7 +35,6 @@ export class InputComponent {
   ngOnInit() {
     this.playlistForm = new FormGroup({
       artist: new FormControl(null, [Validators.required]),
-      quantity: new FormControl(null, [Validators.required]),
       playlistName: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
     });

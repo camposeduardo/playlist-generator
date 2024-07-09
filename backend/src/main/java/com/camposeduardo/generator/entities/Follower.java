@@ -1,4 +1,4 @@
-package com.camposeduardo.generator.spotify.entities;
+package com.camposeduardo.generator.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,8 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonFormat(with = JsonFormat.Feature.ACCEPT_CASE_INSENSITIVE_PROPERTIES)
-public class AccessTokenResponse {
+public class Follower {
 
-    @JsonProperty("access_token")
-    private String accessToken;
+    @JsonProperty("total")
+    private String total;
 }

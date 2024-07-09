@@ -1,7 +1,7 @@
-package com.camposeduardo.generator.spotify.service;
+package com.camposeduardo.generator.service;
 
-import com.camposeduardo.generator.spotify.entities.AccessTokenResponse;
-import com.camposeduardo.generator.spotify.entities.UserProfile;
+import com.camposeduardo.generator.entities.AccessTokenResponse;
+import com.camposeduardo.generator.entities.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;

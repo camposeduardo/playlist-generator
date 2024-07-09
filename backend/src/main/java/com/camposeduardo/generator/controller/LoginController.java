@@ -1,8 +1,8 @@
-package com.camposeduardo.generator.spotify.controller;
+package com.camposeduardo.generator.controller;
 
-import com.camposeduardo.generator.spotify.entities.AccessTokenResponse;
-import com.camposeduardo.generator.spotify.service.LoginService;
-import com.camposeduardo.generator.spotify.service.UserService;
+import com.camposeduardo.generator.entities.AccessTokenResponse;
+import com.camposeduardo.generator.service.LoginService;
+import com.camposeduardo.generator.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

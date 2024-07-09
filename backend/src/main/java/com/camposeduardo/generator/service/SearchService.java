@@ -1,17 +1,10 @@
-package com.camposeduardo.generator.spotify.service;
+package com.camposeduardo.generator.service;
 
-import com.camposeduardo.generator.spotify.entities.Artist;
-import com.camposeduardo.generator.spotify.entities.ArtistResponse;
-import com.camposeduardo.generator.spotify.entities.Item;
-import com.camposeduardo.generator.spotify.entities.SearchResponse;
+import com.camposeduardo.generator.entities.SearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
 
 @Service
 public class SearchService {

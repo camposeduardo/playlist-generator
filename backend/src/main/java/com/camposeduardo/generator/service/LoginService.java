@@ -1,4 +1,4 @@
-package com.camposeduardo.generator.spotify.service;
+package com.camposeduardo.generator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
