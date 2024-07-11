@@ -17,9 +17,7 @@ export class ResultComponent {
 
   playerIdStatus: string | null = null;
 
-  constructor(private recommendationService: RecommendationService,
-    private playlistService: PlaylistService
-  ) { }
+  constructor(private recommendationService: RecommendationService) { }
 
   ngOnInit() {
     this.recommendationService.recommendations.subscribe({

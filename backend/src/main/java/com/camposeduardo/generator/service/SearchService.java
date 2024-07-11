@@ -17,8 +17,7 @@ public class SearchService {
     public SearchResponse search(String artist, String token) {
 
         HttpHeaders headers = new HttpHeaders();
-        String spotifyToken = token.substring(7);
-        headers.setBearerAuth(spotifyToken);
+        headers.setBearerAuth(token);
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         String fullUrl = String.format(url, artist, 10);
@@ -32,7 +31,8 @@ public class SearchService {
         SearchResponse searchResponse = response.getBody();
 
         // https://www.baeldung.com/java-concurrentmodificationexception
-        searchResponse.getArtists().getItems().removeIf(i -> i.getImages() == null || i.getGenres() == null);
+        searchResponse.getArtists().getItems().removeIf(i -> i.getImages().isEmpty()
+                            || i.getGenres().isEmpty());
 
         return searchResponse;
     }

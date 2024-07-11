@@ -17,11 +17,11 @@ public class PlaylistService {
     private RestTemplate restTemplate;
 
     public String createPlaylist(String token, String userId, CreatePlaylistRequest playlist)  {
+
         String url = "https://api.spotify.com/v1/users/%s/playlists";
 
         HttpHeaders headers = new HttpHeaders();
-        String spotifyToken = token.substring(7);
-        headers.setBearerAuth(spotifyToken);
+        headers.setBearerAuth(token);
 
         HttpEntity<Playlist> entity = new HttpEntity<>(playlist.getPlaylist(),headers);
 
@@ -43,8 +43,7 @@ public class PlaylistService {
         String url = "https://api.spotify.com/v1/playlists/%s/tracks";
 
         HttpHeaders headers = new HttpHeaders();
-        String spotifyToken = token.substring(7);
-        headers.setBearerAuth(spotifyToken);
+        headers.setBearerAuth(token);
 
         List<String> tracksUri = musics.stream().map(Track::getUri).toList();
 

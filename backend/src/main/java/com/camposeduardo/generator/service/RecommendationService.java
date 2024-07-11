@@ -19,8 +19,7 @@ public class RecommendationService {
     public RecommendationResponse generateRecommendation(String artistId, String genre,
                                                          String token) {
         HttpHeaders headers = new HttpHeaders();
-        String spotifyToken = token.substring(7);
-        headers.setBearerAuth(spotifyToken);
+        headers.setBearerAuth(token);
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         String fullUrl = String.format(url, artistId, genre);

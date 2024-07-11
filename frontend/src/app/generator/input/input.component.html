@@ -19,7 +19,8 @@
         <textarea class="form-control" id="playlistDescription" rows="3" formControlName="description"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-success" (click)="generatePlaylist()">Generate Playlist</button>
+      <!--Create logic to disable the button if the app has no tracks and artist profile information.-->
+      <button type="submit" class="btn btn-success" (click)="generatePlaylist()" [disabled]="!playlistForm.valid">Generate Playlist</button>
     </div>
 
   </form>

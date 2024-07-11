@@ -17,17 +17,15 @@ public class UserService {
     public UserProfile getUserProfileInfo(String token) {
 
         String url = "https://api.spotify.com/v1/me";
-
-        String spotifyToken = token.substring(7);
-
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth(spotifyToken);
+        headers.setBearerAuth(token);
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         ResponseEntity<UserProfile> response = restTemplate.exchange(
                 url, HttpMethod.GET, entity,
                 UserProfile.class);
+
         return response.getBody();
     }
 
