@@ -28,8 +28,6 @@ export class InputComponent {
   singleArtist: Artist | undefined = undefined;
   artists: Artist[] | undefined = undefined;
 
-  @Output() showResults = new EventEmitter();
-
   playlistForm!: FormGroup;
 
   ngOnInit() {
@@ -73,7 +71,13 @@ export class InputComponent {
       description: this.playlistForm.get('description')?.value,
       status: false,
     }
-    this.playlistService.generatePlaylist(playlist);
+
+    this.playlistService.generatePlaylist(playlist).subscribe({
+      next: (value) => {
+          this.playlistForm!.reset();
+          this.recommendationService.clearMusicRecommendations();
+      },
+    });
   }
 
 }

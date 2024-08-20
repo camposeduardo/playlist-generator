@@ -5,7 +5,7 @@
       <div class="input-group">
         <input type="text" class="form-control" id="artist" formControlName="artist" #artist>
         <button type="submit" [disabled]="playlistForm.get('artist')?.hasError('required') " class="btn btn-success btn-search-artist" (click)="searchRelatedArtists(artist.value)">Find the artist's profile</button>
-        <button type="submit" class="btn btn-alert mx-3" (click)="generateMusicRecommendation()"
+        <button type="submit" class="btn btn-alert mx-2" (click)="generateMusicRecommendation()"
       [disabled]="!singleArtist">Generate Music Recommendations</button>
       </div>
       <div>
@@ -19,7 +19,6 @@
         <textarea class="form-control" id="playlistDescription" rows="3" formControlName="description"></textarea>
       </div>
 
-      <!--Create logic to disable the button if the app has no tracks and artist profile information.-->
       <button type="submit" class="btn btn-success" (click)="generatePlaylist()" [disabled]="!playlistForm.valid">Generate Playlist</button>
     </div>
 

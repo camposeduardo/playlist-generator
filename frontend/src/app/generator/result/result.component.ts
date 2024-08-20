@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RecommendationService } from '../../services/recommendation.service';
 import { Track } from '../../interfaces/Track';
 import { CommonModule } from '@angular/common';
-import { PlaylistService } from '../../services/playlist.service';
 
 @Component({
   selector: 'result',
@@ -22,6 +21,7 @@ export class ResultComponent {
   ngOnInit() {
     this.recommendationService.recommendations.subscribe({
       next: (data) => {
+        // Display something when doesn't have data
         if (data) {
           this.tracks = data;
         }

@@ -17,7 +17,7 @@ export class PlaylistService {
 
   generatePlaylist(playlist: Playlist) {
 
-    let tracksSubject = this.recommendationService.recommendations.subscribe({
+    let tracksSubject = this.recommendationService.recommendations.pipe().subscribe({
       next: (response) => {
         if (response) {
           this.tracks = response;
@@ -33,6 +33,6 @@ export class PlaylistService {
     const user = JSON.parse(localStorage.getItem("user")!);
     const userId = user.id;
 
-    return this.http.post<string>(`${environment.apiUrl}/playlist/generate`, createPlaylistRequest, {params: {userId: userId}}).subscribe();
+    return this.http.post<string>(`${environment.apiUrl}/playlist/generate`, createPlaylistRequest, {params: {userId: userId}});
   }
 }

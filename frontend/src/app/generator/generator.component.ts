@@ -16,9 +16,4 @@ import { RecommendationService } from '../services/recommendation.service';
 })
 export class GeneratorComponent {
 
-  constructor(private recommendationService: RecommendationService,
-    private playlistService: PlaylistService
-  ) { }
-
-
 }

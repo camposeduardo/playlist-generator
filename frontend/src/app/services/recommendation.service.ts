@@ -22,11 +22,15 @@ export class RecommendationService {
       genre: genre
     }}).pipe(
       map(response => {
-        this.recommendationsSubject?.next(response.tracks)
+        this.recommendationsSubject?.next(response.tracks);
         return response;
       }), (err) => {
         return err;
       }
     );
+  }
+
+  clearMusicRecommendations() {
+    this.recommendationsSubject?.next([]);
   }
 }
