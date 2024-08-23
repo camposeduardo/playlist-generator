@@ -26,7 +26,6 @@ export class LoginService {
     });
 
     return this.http.get<UserProfile>(`${environment.apiUrl}/profile`, { headers }).pipe(map((response: UserProfile) => {
-        console.log(response)
         localStorage.setItem('user', JSON.stringify(response));
         return response;
       }));

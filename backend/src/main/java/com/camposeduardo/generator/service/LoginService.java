@@ -15,8 +15,6 @@ public class LoginService {
     @Autowired
     private static final SecureRandom RANDOM = new SecureRandom();
 
-
-
     public Map<String, String> redirectToSpotifyAuthorization() throws NoSuchAlgorithmException {
         String verifier = this.generateCodeVerifier();
         String challenge = this.generateCodeChallenge(verifier);
