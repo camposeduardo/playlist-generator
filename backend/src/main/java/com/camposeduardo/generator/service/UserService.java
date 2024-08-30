@@ -2,6 +2,7 @@ package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.AccessTokenResponse;
 import com.camposeduardo.generator.entities.UserProfile;
+import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,14 @@ public class UserService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private TokenService tokenService;
+
     public UserProfile getUserProfileInfo(String token) {
+
+        if (tokenService.isTokenEmpty(token)) {
+            throw new InvalidSpofityTokenException();
+        }
 
         String url = "https://api.spotify.com/v1/me";
         HttpHeaders headers = new HttpHeaders();

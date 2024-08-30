@@ -1,6 +1,8 @@
 package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.SearchResponse;
+import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
+import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,14 @@ public class SearchService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private TokenService tokenService;
 
     public SearchResponse search(String artist, String token) {
+
+        if (tokenService.isTokenEmpty(token)) {
+            throw new InvalidSpofityTokenException();
+        }
 
         String url = "https://api.spotify.com/v1/search?q=%s&type=artist&limit=%d";
 
@@ -41,9 +49,8 @@ public class SearchService {
                     || i.getGenres().isEmpty());
 
         } catch (RestClientException e) {
-            // custom exception
+            throw new SpotifyApiErrorException();
         }
-
 
         return searchResponse;
     }

@@ -1,6 +1,10 @@
 package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.*;
+import com.camposeduardo.generator.exceptions.InvalidPlaylistException;
+import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
+import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
+import com.camposeduardo.generator.exceptions.UserIdInvalidException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,11 +27,11 @@ public class PlaylistService {
     public CreatePlaylistResponse generatePlaylist(String token, String userId, CreatePlaylistRequest playlist)  {
 
         if (tokenService.isTokenEmpty(token)) {
-            return null;
+            throw new InvalidSpofityTokenException();
         }
 
         if (userId == null || userId.isBlank()) {
-            return null;
+           throw new UserIdInvalidException();
         }
 
         String url = "https://api.spotify.com/v1/users/%s/playlists";
@@ -36,7 +40,7 @@ public class PlaylistService {
         headers.setBearerAuth(token);
 
         if (isPlaylistEmpty(playlist.getPlaylist())) {
-            return null;
+            throw new InvalidPlaylistException();
         }
 
         HttpEntity<Playlist> entity = new HttpEntity<>(playlist.getPlaylist(),headers);
@@ -54,9 +58,8 @@ public class PlaylistService {
                 // create custom exception
             }
 
-
         } catch (RestClientException er) {
-            // create custom exception
+            throw new SpotifyApiErrorException();
         }
 
         addTracksToPlaylist(playlist.getTracks(), token, createPlaylistResponse.getId());
@@ -67,7 +70,7 @@ public class PlaylistService {
     public void addTracksToPlaylist(List<Track> musics, String token, String playlistId) {
 
         if (tokenService.isTokenEmpty(token)) {
-            // custom exception;
+            throw new InvalidSpofityTokenException();
         }
 
         String url = "https://api.spotify.com/v1/playlists/%s/tracks";
@@ -92,7 +95,7 @@ public class PlaylistService {
             }
 
         } catch (RestClientException er) {
-            // custom exception
+            throw new SpotifyApiErrorException();
         }
 
     }

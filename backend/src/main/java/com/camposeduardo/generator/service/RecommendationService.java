@@ -1,6 +1,8 @@
 package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.RecommendationResponse;
+import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
+import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +24,7 @@ public class RecommendationService {
                                                          String token) {
 
         if (tokenService.isTokenEmpty(token)) {
-            return null;
+            throw new InvalidSpofityTokenException();
         }
         
         String url = "https://api.spotify.com/v1/recommendations?seed_artists=%s&seed_genres=%s&limit=100";
@@ -46,7 +48,7 @@ public class RecommendationService {
             }
 
         } catch (RestClientException er) {
-            // custom exception
+            throw new SpotifyApiErrorException();
         }
         
         return tracks;
