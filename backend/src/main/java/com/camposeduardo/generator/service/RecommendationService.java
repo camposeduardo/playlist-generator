@@ -2,6 +2,7 @@ package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.RecommendationResponse;
 import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
+import com.camposeduardo.generator.exceptions.InvalidSpotifyResponseBodyException;
 import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -44,7 +45,7 @@ public class RecommendationService {
             tracks = response.getBody();
 
             if (tracks == null || tracks.getTracks() == null) {
-                // custom exception
+                throw new InvalidSpotifyResponseBodyException("Failed to generate music recommendations.");
             }
 
         } catch (RestClientException er) {

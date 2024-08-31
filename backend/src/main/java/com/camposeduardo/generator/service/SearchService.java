@@ -2,6 +2,7 @@ package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.SearchResponse;
 import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
+import com.camposeduardo.generator.exceptions.InvalidSpotifyResponseBodyException;
 import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -41,7 +42,7 @@ public class SearchService {
             searchResponse = response.getBody();
 
             if (searchResponse == null || searchResponse.getArtists() == null) {
-                // custom exception
+               throw new InvalidSpotifyResponseBodyException("Search failed.");
             }
 
             // https://www.baeldung.com/java-concurrentmodificationexception

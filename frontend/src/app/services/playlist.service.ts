@@ -33,6 +33,6 @@ export class PlaylistService {
     const user = JSON.parse(localStorage.getItem("user")!);
     const userId = user.id;
 
-    return this.http.post<any>(`${environment.apiUrl}/playlist/generate`, createPlaylistRequest, {params: {userId: userId}});
+    return this.http.post<string>(`${environment.apiUrl}/playlist/generate`, createPlaylistRequest, {params: {userId: userId}});
   }
 }

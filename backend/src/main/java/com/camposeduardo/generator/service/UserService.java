@@ -3,9 +3,12 @@ package com.camposeduardo.generator.service;
 import com.camposeduardo.generator.entities.AccessTokenResponse;
 import com.camposeduardo.generator.entities.UserProfile;
 import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
+import com.camposeduardo.generator.exceptions.InvalidSpotifyResponseBodyException;
+import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -30,11 +33,25 @@ public class UserService {
         headers.setBearerAuth(token);
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<UserProfile> response = restTemplate.exchange(
-                url, HttpMethod.GET, entity,
-                UserProfile.class);
+        UserProfile profile = null;
 
-        return response.getBody();
+        try {
+            ResponseEntity<UserProfile> response = restTemplate.exchange(
+                    url, HttpMethod.GET, entity,
+                    UserProfile.class);
+
+            profile = response.getBody();
+
+            if (profile == null || profile.getId() == null
+                    || profile.getDisplayName() == null) {
+                throw new InvalidSpotifyResponseBodyException("Failed to find user profile");
+            }
+
+        } catch (RestClientException e) {
+            throw new SpotifyApiErrorException();
+        }
+
+        return profile;
     }
 
     public AccessTokenResponse requestAccessToken(String code, String verifier) {

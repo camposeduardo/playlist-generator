@@ -1,10 +1,7 @@
 package com.camposeduardo.generator.service;
 
 import com.camposeduardo.generator.entities.*;
-import com.camposeduardo.generator.exceptions.InvalidPlaylistException;
-import com.camposeduardo.generator.exceptions.InvalidSpofityTokenException;
-import com.camposeduardo.generator.exceptions.SpotifyApiErrorException;
-import com.camposeduardo.generator.exceptions.UserIdInvalidException;
+import com.camposeduardo.generator.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -55,7 +52,7 @@ public class PlaylistService {
             createPlaylistResponse = response.getBody();
 
             if (createPlaylistResponse == null || createPlaylistResponse.getId() == null) {
-                // create custom exception
+                throw new InvalidSpotifyResponseBodyException("Playlist creation failed.");
             }
 
         } catch (RestClientException er) {
@@ -91,7 +88,7 @@ public class PlaylistService {
             PlaylistTrackResponse body = response.getBody();
 
             if (body == null || body.getSnapshotId() == null) {
-                // custom exception
+                throw new InvalidSpotifyResponseBodyException("Failed to add tracks.");
             }
 
         } catch (RestClientException er) {
