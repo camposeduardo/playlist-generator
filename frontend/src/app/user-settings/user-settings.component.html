@@ -1,19 +1,13 @@
-<div class="container text-light bg-dark">
-  <div class="profile-card">
-      <div class="profile-info">
-          <div class="profile-details">
-              <div>
-                  <img [src]="userProfile!.images[1]!.url" alt="">
-              </div>
-              <div class="ms-5">
-                  <p><b>Name: </b> {{userProfile?.display_name}}</p>
-                  <p><b>Email: </b>{{userProfile?.email}}</p>
-              </div>
-          </div>
-          <div class="me-5">
-              <p><b>Country: </b>{{userProfile?.country}}</p>
-              <p><b>Followers: </b> {{userProfile?.followers?.total}}</p>
-          </div>
+<div class="container text-light  p-4 rounded profile-container d-flex justify-content-center">
+  <div class="profile-card text-center p-4 shadow-sm">
+      <div class="profile-image mb-4">
+          <img [src]="userProfile!.images[1]!.url" alt="User Profile Picture" class="rounded-circle img-fluid">
+      </div>
+      <div class="profile-details">
+          <p class="mb-2"><b>Name:</b> {{userProfile?.display_name}}</p>
+          <p class="mb-2"><b>Email:</b> {{userProfile?.email}}</p>
+          <p class="mb-2"><b>Country:</b> {{userProfile?.country}}</p>
+          <p class="mb-2"><b>Followers:</b> {{userProfile?.followers?.total}}</p>
       </div>
   </div>
 </div>

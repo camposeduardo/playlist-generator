@@ -1,26 +1,35 @@
 <div class="mt-3">
   <form [formGroup]="playlistForm" class="py-3">
-    <div class="form-group mb-3">
-      <label for="playlistQuantity" c><b>Artist</b></label>
+    <div class="form-group mb-4">
+      <label for="artist"><b>Artist</b></label>
       <div class="input-group">
-        <input type="text" class="form-control" id="artist" formControlName="artist" #artist>
-        <button type="submit" [disabled]="playlistForm.get('artist')?.hasError('required') " class="btn btn-success btn-search-artist" (click)="searchRelatedArtists(artist.value)">Find the artist's profile</button>
-        <button type="submit" class="btn btn-alert mx-2" (click)="generateMusicRecommendation()"
-      [disabled]="!singleArtist">Generate Music Recommendations</button>
+        <input type="text" class="form-control input-custom" id="artist" formControlName="artist" #artist [ngClass]="{'is-invalid': playlistForm.get('artist')?.invalid && playlistForm.get('artist')?.touched}">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-success btn-search-artist" (click)="searchRelatedArtists(artist.value)" [disabled]="playlistForm.get('artist')?.invalid" aria-label="Find the artist's profile">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
       </div>
-      <div>
+      <div *ngIf="playlistForm.get('artist')?.invalid && playlistForm.get('artist')?.touched" class="invalid-feedback">
+        Please enter an artist name.
       </div>
-      <div class="form-group mb-3">
-        <label for="playlistName"><b>Playlist name</b></label>
-        <input type="text" class="form-control" id="playlistName" formControlName="playlistName">
-      </div>
-      <div class="form-group mb-3">
-        <label for="playlistDescription"><b>Playlist description</b></label>
-        <textarea class="form-control" id="playlistDescription" rows="3" formControlName="description"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-success" (click)="generatePlaylist()" [disabled]="!playlistForm.valid">Generate Playlist</button>
     </div>
 
+    <div class="form-group mb-4">
+      <label for="playlistName"><b>Playlist Name</b></label>
+      <input type="text" class="form-control input-custom" id="playlistName" formControlName="playlistName" [ngClass]="{'is-invalid': playlistForm.get('playlistName')?.invalid && playlistForm.get('playlistName')?.touched}">
+      <div *ngIf="playlistForm.get('playlistName')?.invalid && playlistForm.get('playlistName')?.touched" class="invalid-feedback">
+        Please enter a playlist name.
+      </div>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="playlistDescription"><b>Playlist Description</b></label>
+      <textarea class="form-control input-custom text-light" id="playlistDescription" rows="3" formControlName="description"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-success" (click)="generatePlaylist()" [disabled]="!playlistForm.valid" aria-label="Generate Playlist">Generate Playlist</button>
+    </div>
   </form>
 </div>

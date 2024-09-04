@@ -10,11 +10,11 @@
 }
 
 body {
-  color: #f0f0f0;
+  color: #333;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1d1b1b;
+  background-color: #f4f4f4;
 }
 .container {
   margin-top: 50px;

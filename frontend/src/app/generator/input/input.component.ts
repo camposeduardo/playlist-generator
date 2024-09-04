@@ -34,7 +34,7 @@ export class InputComponent {
     this.playlistForm = new FormGroup({
       artist: new FormControl(null, [Validators.required]),
       playlistName: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
+      description: new FormControl(null),
     });
   }
 
@@ -46,6 +46,7 @@ export class InputComponent {
         this.playlistForm.patchValue({
           artist: res.data.name
         });
+        this.generateMusicRecommendation();
       }
     })
   }
@@ -60,6 +61,8 @@ export class InputComponent {
       }
     });
   }
+
+
 
   generateMusicRecommendation() {
     this.recommendationService.generateRecommendations(this.singleArtist!.id, this.singleArtist!.genres[0]).subscribe();

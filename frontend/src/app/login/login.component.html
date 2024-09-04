@@ -1,12 +1,69 @@
-<div class="container">
-  <div class="row justify-content-center align-items-center mt-5">
-      <div class="col-3">
-          <div class="app-box text-center bg-dark">
-              <h2><b>Playlist Generator</b></h2>
-              <p class="pt-3">Welcome to Playlist Generator! This app is designed to create personalized playlists on Spotify based on artist. Simply enter your favorite artist name and it will generate the perfect soundtracks for you. Try it now and discover new music that matches your style!</p>
-              <button type="submit" class="btn btn-success mt-3" (click)="redirectToAuthCodeFlow()"><i class="bi bi-spotify me-3"
-                ></i>Connect your Spotify account</button>
+<section class="hero">
+  <div class="container">
+      <h1>Discover Your Perfect Playlist</h1>
+      <p>Create personalized playlists based on your favorite artists.</p>
+      <a class="btn btn-success" (click)="redirectToAuthCodeFlow()">Get Started</a>
+  </div>
+</section>
+
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+      <h2>How It Works</h2>
+      <div class="row text-center flex-column align-items-center">
+          <div class="col-12 step mb-5 section-step">
+              <i class="bi bi-search" style="font-size: 48px;"></i>
+              <h3>Step 1</h3>
+              <p>Search for your favorite artist's Spotify profile.</p>
+              <div class="image-wrapper mt-3">
+                <img src="../../assets/search-profile.png" alt="Screenshot of search functionality" class="img-fluid highlight-img mt-3">
+                <img src="../../assets/related-artists.png" alt="Screenshot of related artists" class="img-fluid highlight-img mt-3">
+              </div>
+          </div>
+          <div class="col-12 step mb-5 section-step">
+              <i class="bi bi-music-note-list" style="font-size: 48px;"></i>
+              <h3>Step 2</h3>
+              <p>Fill in the fields and press the <b>“Generate Playlist”</b> button to generate the playlist.</p>
+              <div class="image-wrapper">
+                <img src="../../assets/playlist-generator.png" alt="Screenshot of playlist generation" class="img-fluid highlight-img mt-3">
+              </div>
+          </div>
+          <div class="col-12 step mb-5 section-step">
+              <i class="bi bi-headphones" style="font-size: 48px;"></i>
+              <h3>Step 3</h3>
+              <p>Enjoy your new music experience!</p>
+              <div class="image-wrapper">
+                <img src="../../assets/playlist.png" alt="Screenshot of enjoying playlist" class="img-fluid highlight-img mt-3" style="width: 400px;">
+              </div>
           </div>
       </div>
   </div>
-</div>
+</section>
+
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+      <h2>What Our Users Say</h2>
+      <div class="row">
+          <div class="col-md-4 testimonial">
+              <p>"Playlist Generator helped me discover so many new artists!"</p>
+              <h5>- Bruce Wayne
+              </h5>
+          </div>
+          <div class="col-md-4 testimonial">
+              <p>"I love how easy it is to find new music that matches my style."</p>
+              <h5>- Selina</h5>
+          </div>
+          <div class="col-md-4 testimonial">
+              <p>"The playlists are spot on. Highly recommended!"</p>
+              <h5>- Grayson</h5>
+          </div>
+      </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+      <p>&copy; 2024 Playlist Generator. All Rights Reserved.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </div>
+</footer>

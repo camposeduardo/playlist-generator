@@ -1,12 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-dark header">
   <div class="navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav  text-center justify-content-center ps-3 align-items-center">
-      <h4><a class="text-light" routerLink="/Generator">Playlist Generator</a></h4>
+      <h4>Playlist Generator</h4>
     </div>
   </div>
   <div *ngIf="userProfile" class="dropstart pe-5">
-    <a class="nav-link" href="" id="config-dropdown" role="button" data-bs-toggle="dropdown"
-      aria-expanded="false">
+    <a class="nav-link" href="" id="config-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <img [src]="userProfile.images[1].url" class="rounded rounded-5" alt="">
     </a>
     <div class="dropdown-menu" aria-labelledby="config-dropdown">
@@ -15,4 +14,3 @@
     </div>
   </div>
 </nav>
-
